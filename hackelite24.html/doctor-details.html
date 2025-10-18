@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Details</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #c6e1f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .content-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: center;
+            margin:20px;
+        }
+        /* Doctor Details Section */
+        .doctor-detail-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            flex: 1;
+            animation: bounceInLeft 1.5s;
+        }
+        .doctor-detail-container img {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+        .doctor-info h2 {
+            font-size: 28px;
+            margin: 10px 0;
+            color: #2c3e50;
+        }
+        .doctor-info p {
+            font-size: 16px;
+            margin: 8px 0;
+            color: #7f8c8d;
+        }
+        /* Calendar Section */
+        .calendar-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            flex: 1;
+            animation: bounceInRight 1.5s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .calendar-container h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+        }
+        #calendar {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+        .calendar-container .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        /* Appointment Button */
+        .book-appointment-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+        .book-appointment-btn:hover {
+            background-color: #2980b9;
+        }
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .doctor-detail-container, .calendar-container {
+                max-width: 90%;
+            }
+            #calendar {
+                height: 250px;
+            }
+            .calendar-container .button-container {
+                margin-top: 20px;
+            }
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <!-- Doctor Details Section -->
+        <div class="doctor-detail-container">
+            <img id="doctorImage" src="" alt="Doctor Image">
+            <div class="doctor-info">
+                <h2 id="doctorName"></h2>
+                <p><strong>Specialty:</strong> <span id="doctorSpecialty"></span></p>
+                <p><strong>Age:</strong> <span id="doctorAge"></span></p>
+                <p><strong>Experience:</strong> <span id="doctorExperience"></span> years</p>
+                <p><strong>Ratings:</strong> <span id="doctorRatings"></span> ★</p>
+                <p><strong>Gender:</strong> <span id="doctorGender"></span></p>
+                <p><strong>Contact:</strong> <span id="doctorContact"></span></p>
+            </div>
+        </div>
+        <!-- Calendar Section -->
+        <div class="calendar-container">
+            <h3>Book an Appointment</h3>
+            <div id="calendar"></div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="book-appointment-btn"onclick="window.location='payment1stpage.html'">Book Appointment</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
+    <script>
+        // Fetch doctor data from localStorage
+        const doctorImage = localStorage.getItem('doctorImage');
+        const doctorName = localStorage.getItem('doctorName');
+        const doctorSpecialty = localStorage.getItem('doctorSpecialty');
+        const doctorAge = localStorage.getItem('doctorAge');
+        const doctorExperience = localStorage.getItem('doctorExperience');
+        const doctorRatings = localStorage.getItem('doctorRatings');
+        const doctorGender = localStorage.getItem('doctorGender');
+        const doctorContact = localStorage.getItem('doctorContact');
+        // Populate the page with doctor details
+        document.getElementById('doctorImage').src = doctorImage;
+        document.getElementById('doctorName').textContent = doctorName;
+        document.getElementById('doctorSpecialty').textContent = doctorSpecialty;
+        document.getElementById('doctorAge').textContent = doctorAge;
+        document.getElementById('doctorExperience').textContent = doctorExperience;
+        document.getElementById('doctorRatings').textContent = doctorRatings;
+        document.getElementById('doctorGender').textContent = doctorGender;
+        document.getElementById('doctorContact').textContent = doctorContact;
+        // Initialize FullCalendar
+        $('#calendar').fullCalendar({
+            defaultView: 'month',
+            selectable: true,
+            events: [
+                {
+                    title: 'Available Slot',
+                    start: '2024-12-15T10:00:00',
+                    end: '2024-12-15T11:00:00',
+                },
+                {
+                    title: 'Available Slot',
+                    start: '2024-12-16T14:00:00',
+                    end: '2024-12-16T15:00:00',
+                }
+            ],
+            select: function(start) {
+                const selectedDate = moment(start).format('YYYY-MM-DD');
+                
+            }
+        });
+    </script>
+</body>
+</html>

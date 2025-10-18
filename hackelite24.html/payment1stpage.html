@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 2 6"></path><path d="M6 6H2V2"></path><path d="M18 2l4 4"></path><path d="M18 6h4V2"></path><path d="M6 22l-4-4"></path><path d="M6 18H2v4"></path><path d="M18 22l4-4"></path><path d="M18 18h4v4"></path><path d="M12 7v10"></path><path d="M9 9v6"></path><path d="M15 9v6"></path></svg>
+                <h1>MockPay</h1>
+            </div>
+            <p class="tagline">Secure Payment Gateway</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="payment-container">
+            <div class="payment-details">
+                <h2>Amount to Pay</h2>
+                <div class="amount">₹1,499.99</div>
+                
+                <div class="qr-section">
+                    <div class="qr-code">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h.01"/><path d="M17 7h.01"/><path d="M7 17h.01"/><path d="M17 17h.01"/></svg>
+                    </div>
+                    <p class="transaction-id">Transaction ID: MOCK123456789</p>
+                </div>
+
+                <div class="timer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span id="countdown">05:00</span>
+                </div>
+            </div>
+
+            <div class="payment-actions">
+                <div id="payment-status" class="payment-status pending">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+                    <span id="status-message">Waiting for payment...</span>
+                </div>
+
+                <div class="upi-input">
+                    <label for="upi">Enter UPI ID</label>
+                    <div class="input-group">
+                        <input type="text" id="upi" placeholder="example@upi">
+                        <button id="pay-button">Pay</button>
+                    </div>
+                </div>
+
+                <div class="payment-instructions">
+                    <h3>How to Pay</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                            <div>
+                                <h4>Open UPI App</h4>
+                                <p>Open your preferred UPI payment app</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h.01"/><path d="M17 7h.01"/><path d="M7 17h.01"/><path d="M17 17h.01"/></svg>
+                            <div>
+                                <h4>Scan QR Code</h4>
+                                <p>Scan the QR code or enter UPI ID</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <div>
+                                <h4>Confirm Payment</h4>
+                                <p>Complete the payment in your UPI app</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="#">Privacy Policy</a>
+            <span>•</span>
+            <a href="#">Terms of Service</a>
+            <span>•</span>
+            <a href="#">Contact Us</a>
+        </footer>
+    </div>
+
+    <script src="js/timer.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

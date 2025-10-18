@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signcare</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .logo {
+      width: 100px;
+      border-radius: 50%;
+    }
+    .hero {
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      padding: 10px 10%;
+      background-color: #c6e1f5;
+      position: relative;
+    }
+    nav {
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 25px;
+    }
+    nav ul li {
+      list-style-type: none;
+      display: inline-block;
+      margin: 10px 75px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .login-btn {
+      text-decoration: none;
+      display: inline-block;
+      padding: 14px 40px;
+      color: #fff;
+      background-image: linear-gradient(45deg, #df4881, #c430d7);
+      font-size: 24px;
+      border-radius: 30px;
+      border-top-right-radius: 0;
+      transition: border-top-right-radius 0.3s;
+      border-width: 0;
+    }
+    .login-btn:hover {
+      border-top-right-radius: 30px;
+    }
+    .content {
+      margin-top: 10%;
+      max-width: 600px;
+    }
+    .content h1 {
+      font-size: 60px;
+      color: #222;
+      margin-top: 20px;
+      animation: fadeInDown 1.5s ease-in-out;
+    }
+    .content p {
+      margin: 20px 0 30px;
+      color: #333;
+      font-size: 22px;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+    .content .login-btn {
+      padding: 25px 80px;
+      font-size: 20px;
+      border-width: 0;
+      animation: zoomIn 1.5s ease-in-out;
+    }
+    .features-img {
+      width: 530px;
+      position: absolute;
+      right: 10%;
+      top: 35%;
+      animation: slideInRight 2s ease-in-out;
+    }
+    section {
+      padding: 30px 10%;
+      min-height: 50vh;
+      background-color: #ffcccc;
+    }
+    .section-content {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+      font-family: Arial;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .team,
+    .how-it-works {
+      background-color: #c6e1f5;
+    }
+    .how-it-works p,
+    .team p {
+      margin: 10px 0 20px;
+      font-size: 18px;
+      color: #555;
+    }
+    /* Keyframes for animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes fadeInDown {
+      from {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* button */
+    .btn {
+      margin: 60px;
+      padding: 15px 40px;
+      border: none;
+      outline: none;
+      color: white;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 30px;
+      border-width: 5px;
+      font-size: 30px;
+      animation: zoomIn 1.5s ease-in-out;
+    }
+    .btn::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: sienna;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
+    .btn::before {
+      content: "";
+      background: linear-gradient(
+        45deg,
+        #FF0000, #FF7300, #FFFB00, #48FF00,
+        #00FFD5, #002BFF, #FF00C8, #FF0000
+      );
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 600%;
+      z-index: -1;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      filter: blur(8px);
+      animation: glowing 20s linear infinite;
+      transition: opacity .3s ease-in-out;
+      border-radius: 10px;
+      opacity: 0;
+    }
+    @keyframes glowing {
+      0% {background-position: 0 0;}
+      50% {background-position: 400% 0;}
+      100% {background-position: 0 0;}
+    }
+    .btn:hover::before {
+      opacity: 1;
+    }
+    .btn:active:after {
+      background: transparent;
+    }
+    .btn:active {
+      color: #000;
+      font-weight: bold;
+    }
+
+    .lines{
+      line-height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <nav>
+      <img class="logo" src="new logo.jpg" alt="Logo">
+      <ul>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+      </ul>
+      <div>
+        <button class="login-btn" onclick="window.location='signup.html'">Sign in</button>
+      </div>
+    </nav>
+    <div class="content">
+      <h1 >SignCare:Empowering Healthcare</h1>
+      <p class="lines">Indian Sign Language (ISL), is the main sign language used in India, by anywhere between 1 million
+        to 2.7 million people, most of them Hearing Impaired (HI). The number of certified interpreters of ISL, however,
+        is in the low hundreds, indicating an acute shortage as compared to the HI population.Many healthcare professionals lack
+        proficiency Indian Sign Language (ISL),
+        leading to miscommunication and
+        inadequate care for deaf and hard-ofhearing patients.
+      </p>
+      <button class="btn" onclick="window.location='signup.html'">Get started</button>
+      <img src="1st page photo.png" class="features-img" alt="Features Image">
+    </div>
+  </div>
+  <section id="team" class="team">
+    <div class="section-content">
+      <h2>Our Team</h2>
+      <br><br>
+      <div class="block" style="display: flex; justify-content: space-around; align-items: center;">
+        <div style="display: inline-block; ">
+          <div class="name" style="display:block">Keerthan A K</div>
+          <div style="margin-left:10px;"><img src="keerthan.png" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; margin-top: 10px;"></div>
+        </div>
+        <div style="display: inline-block; ">
+          <div class="name" style="display:block">Pramod Urs O</div>
+          <div style="margin-left:10px;"><img src="pramod.png" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; margin-top: 10px;"></div>
+        </div>
+        <div style="display: inline-block; ">
+          <div class="name" style="display:block">Sagar Anil Shigehalli</div>
+          <div style="margin-left:40px;"><img src="sagar.png" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; margin-top: 10px;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="how-it-works" class="how-it-works">
+    <div class="section-content">
+      <h2>How It Works</h2>
+      <br><br>
+      <p>Signcare uses innovative technology to provide real-time interpretation and translation services for Indian
+        Sign Language (ISL), ensuring seamless communication for the hearing impaired.
+      <p>Real-Time Translation: AI-powered technology translates spoken language into ISL for seamless communication in
+        healthcare.</p>
+      <p>Video Interpreting: Connects users with interpreters for teleconsultations or in-person appointments.</p>
+      <p>Accessible Information: Offers ISL-translated health resources like symptom guides and medication instructions.
+      </p>
+      <p>Personalized Assistance: Saves user medical history for efficient future consultations.</p>
+      <p>Multi-Device Compatibility: Accessible across smartphones, tablets, and computers.</p>
+      <p>Community Support: Facilitates a supportive community for the hearing impaired to share experiences.</p>
+      </p>
+    </div>
+  </section>
+</body>
+</html>

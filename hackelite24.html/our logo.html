@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Logo Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #1e035e, #2c006b, #48008b, #6a0ea4);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        .logo-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+            animation: pulse 3s infinite alternate;
+        }
+
+        /* Glowing circular waves */
+        .circle {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, transparent 70%);
+            animation: wave 4s infinite ease-in-out;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        .circle:nth-child(2) {
+            animation-delay: 0.5s;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 80%);
+        }
+
+        .circle:nth-child(3) {
+            animation-delay: 1s;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 90%);
+        }
+
+        /* Background Particles (Stars) */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particles span {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            opacity: 0.7;
+            border-radius: 50%;
+            animation: sparkle 8s infinite linear;
+        }
+
+        .particles span:nth-child(odd) {
+            width: 2px;
+            height: 2px;
+        }
+
+        /* Team Name Animation */
+        .team-name {
+            margin-top: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: glowText 2s infinite alternate;
+        }
+
+        /* Keyframes for wave animation */
+        @keyframes wave {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(2.8);
+                opacity: 0;
+            }
+        }
+
+        /* Keyframes for pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+            }
+            100% {
+                transform: scale(1.1);
+                box-shadow: 0 0 35px rgba(255, 255, 255, 1);
+            }
+        }
+
+        /* Keyframes for particles movement */
+        @keyframes sparkle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-150px) translateX(200px);
+                opacity: 0;
+            }
+        }
+
+        /* Keyframes for glowing text */
+        @keyframes glowText {
+            0% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+                transform: scale(1);
+            }
+            100% {
+                text-shadow: 0 0 25px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8);
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="logo-container">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <img src="animation.jpg" alt="Team Logo">
+</div>
+
+<div class="team-name">Logic High</div>
+
+<!-- Particle Effects (Stars) -->
+<div class="particles">
+    <script>
+        for (let i = 0; i < 150; i++) {
+            const particle = document.createElement('span');
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = Math.random() * 15 + 10 + 's';
+            document.querySelector('.particles').appendChild(particle);
+        }
+    </script>
+</div>
+
+<script>
+    // Redirect to practise.html after 5 seconds
+    setTimeout(() => {
+        window.location.href = "front page.html";
+    }, 3000);
+</script>
+</body>
+</html>

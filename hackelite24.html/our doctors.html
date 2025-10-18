@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c6e1f5;
+            color: #333;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Header Section */
+        .header {
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            background-image: linear-gradient(45deg, #34b8b0, #3a99c7);
+            border-radius: 30px;
+            width: 100%;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .header:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-container {
+            position: absolute;
+            top: 3px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .profile-container img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+
+        .profile-container p {
+            margin: 0;
+            font-size: 16px;
+            color: white;
+        }
+
+        .profile-container p:first-child {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .category-section {
+            margin: 30px 0;
+        }
+
+        .category-section h2 {
+            text-align: center;
+            color: #444;
+            font-size: 32px;
+            padding: 15px 40px;
+            border-radius: 30px;
+           
+            background-color: #0097A7;
+            text-shadow: #333;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .doctor-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .doctor-card {
+            width: 230px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .doctor-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .doctor-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .doctor-info h4 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .doctor-info p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            padding-bottom: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .doctor-row {
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .doctor-card {
+                width: 200px;
+            }
+
+            .header {
+                font-size: 28px;
+            }
+
+            .profile-container {
+                top: 12px;
+                left: 12px;
+            }
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section with Profile -->
+    <div class="header">
+        <div class="profile-container" id="profileContainer">
+            <img id="userProfilePicture" src="" alt="Profile Picture">
+            <div>
+                <p id="userName">John Doe</p>
+                <p id="userEmail">john.doe@example.com</p>
+            </div>
+        </div>
+        Our Doctors
+    </div>
+    <div class="container">
+        <!-- Pediatricians Section -->
+        <div class="category-section">
+            <h2>Pediatricians</h2>
+            <div class="doctor-row">
+                <!-- Doctor Profiles -->
+                <div class="doctor-card" onclick="redirectToDoctorDetails('1.avif', 'Dr. Aditi Sharma', 'MBBS, PhD', 35, 10, 4.5, 'Female', '+123456789')">
+                    <img src="1.avif" alt="Doctor 1">
+                    <div class="doctor-info">
+                        <h4>Dr. Aditi Sharma</h4>
+                        <p>Age: 35</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('2.jpg', 'Dr. Rajesh Kumar', 'MBBS, PhD', 40, 10, 4.5, 'Male', '+123456789')">
+                    <img src="2.jpg" alt="Doctor 2">
+                    <div class="doctor-info">
+                        <h4>Dr. Rajesh Kumar</h4>
+                        <p>Age: 40</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('4.webp', 'Dr. Priya Singh', 'MBBS, PhD', 32, 10, 4.5, 'Female', '+123456789')">
+                    <img src="4.webp" alt="Doctor 3">
+                    <div class="doctor-info">
+                        <h4>Dr. Priya Singh</h4>
+                        <p>Age: 32</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('3.png', 'Dr. Arvind Gupta', 'MBBS, PhD', 38, 10, 4.5, 'Male', '+123456789')">
+                    <img src="3.png" alt="Doctor 4">
+                    <div class="doctor-info">
+                        <h4>Dr. Arvind Gupta</h4>
+                        <p>Age: 38</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Oncologists Section -->
+        <div class="category-section">
+            <h2>Oncologists</h2>
+            <div class="doctor-row">
+                <!-- Doctor Profiles -->
+                <div class="doctor-card" onclick="redirectToDoctorDetails('6.jpg', 'Dr. Sunita Deshmukh', 'MBBS, PhD', 45, 10, 4.5, 'Female', '+123456789')">
+                    <img src="6.jpg" alt="Doctor 5">
+                    <div class="doctor-info">
+                        <h4>Dr. Sunita Deshmukh</h4>
+                        <p>Age: 45</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('5.avif', 'Dr. Sanjay Verma', 'MBBS, PhD', 50, 10, 4.5, 'Male', '+123456789')">
+                    <img src="5.avif" alt="Doctor 6">
+                    <div class="doctor-info">
+                        <h4>Dr. Sanjay Verma</h4>
+                        <p>Age: 50</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('7.webp', 'Dr. Neha Reddy', 'MBBS, PhD', 42, 10, 4.5, 'Female', '+123456789')">
+                    <img src="7.webp" alt="Doctor 7">
+                    <div class="doctor-info">
+                        <h4>Dr. Neha Reddy</h4>
+                        <p>Age: 42</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('10.webp', 'Dr. Vikram Patel', 'MBBS, PhD', 47, 10, 4.5, 'Male', '+123456789')">
+                    <img src="10.webp" alt="Doctor 8">
+                    <div class="doctor-info">
+                        <h4>Dr. Vikram Patel</h4>
+                        <p>Age: 47</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Neurosurgeons Section -->
+        <div class="category-section">
+            <h2>Neurosurgeons</h2>
+            <div class="doctor-row">
+                <!-- Doctor Profiles -->
+                <div class="doctor-card" onclick="redirectToDoctorDetails('9.jpg', 'Dr. Ravi Shankar', 'MBBS, PhD', 40, 10, 4.5, 'Male', '+123456789')">
+                    <img src="9.jpg" alt="Doctor 9">
+                    <div class="doctor-info">
+                        <h4>Dr. Ravi Shankar</h4>
+                        <p>Age: 40</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('8.avif', 'Dr. Radhika Joshi', 'MBBS, PhD', 45, 10, 4.5, 'Female', '+123456789')">
+                    <img src="8.avif" alt="Doctor 10">
+                    <div class="doctor-info">
+                        <h4>Dr. Radhika Joshi</h4>
+                        <p>Age: 45</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('11.jpg', 'Dr. Rajiv Mishra', 'MBBS, PhD', 55, 20, 4.7, 'Male', '+123456789')">
+                    <img src="11.jpg" alt="Doctor 11">
+                    <div class="doctor-info">
+                        <h4>Dr. Rajiv Mishra</h4>
+                        <p>Age: 55</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('12.webp', 'Dr. Praveen Kumar', 'MBBS, PhD', 50, 18, 4.6, 'Male', '+123456789')">
+                    <img src="12.webp" alt="Doctor 12">
+                    <div class="doctor-info">
+                        <h4>Dr. Praveen Kumar</h4>
+                        <p>Age: 50</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cardiologists Section -->
+        <div class="category-section">
+            <h2>Cardiologists</h2>
+            <div class="doctor-row">
+                <!-- Doctor Profiles -->
+                <div class="doctor-card" onclick="redirectToDoctorDetails('13.jpg', 'Dr. Ramesh Yadav', 'MBBS, PhD', 48, 15, 4.5, 'Male', '+123456789')">
+                    <img src="13.jpg" alt="Doctor 13">
+                    <div class="doctor-info">
+                        <h4>Dr. Ramesh Yadav</h4>
+                        <p>Age: 48</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('14.avif', 'Dr. Ananth Kumar', 'MBBS, PhD', 43, 12, 4.6, 'Male', '+123456789')">
+                    <img src="14.avif" alt="Doctor 14">
+                    <div class="doctor-info">
+                        <h4>Dr. Ananth Kumar</h4>
+                        <p>Age: 43</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('15.jpg', 'Dr. Arun Patel', 'MBBS, PhD', 52, 20, 4.7, 'Male', '+123456789')">
+                    <img src="15.jpg" alt="Doctor 15">
+                    <div class="doctor-info">
+                        <h4>Dr. Arun Patel</h4>
+                        <p>Age: 52</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+                <div class="doctor-card" onclick="redirectToDoctorDetails('11.jpg', 'Dr. Subramanyam', 'MBBS, PhD', 46, 15, 4.5, 'Male', '+123456789')">
+                    <img src="11.jpg" alt="Doctor 16">
+                    <div class="doctor-info">
+                        <h4>Dr. Subramanyam</h4>
+                        <p>Age: 46</p>
+                        <p>Specialty: MBBS, PhD</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="new.js" defer type="module"></script>
+    <script>
+        // Redirect function to save doctor data and go to doctor details page
+        function redirectToDoctorDetails(image, name, specialty, age, experience, ratings, gender, contact) {
+            // Save the doctor data in localStorage
+            localStorage.setItem('doctorImage', image);
+            localStorage.setItem('doctorName', name);
+            localStorage.setItem('doctorSpecialty', specialty);
+            localStorage.setItem('doctorAge', age);
+            localStorage.setItem('doctorExperience', experience);
+            localStorage.setItem('doctorRatings', ratings);
+            localStorage.setItem('doctorGender', gender);
+            localStorage.setItem('doctorContact', contact);
+            
+            // Redirect to doctor details page
+            window.location.href = 'doctor-details.html';
+        }
+    </script>
+</body>
+</html>

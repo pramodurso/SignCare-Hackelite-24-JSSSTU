@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .profile-container {
+      display: flex;
+      align-items: center;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    .profile-container img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      transition: transform 0.3s;
+    }
+
+    .profile-container img:hover {
+      transform: scale(1.1);
+    }
+
+    .profile-container p {
+      margin: 0 10px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100px);
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="profile-container" id="profileContainer">
+    <img id="userProfilePicture" src="" alt="Profile Picture" onclick="window.location.href='new.html'">
+    <p id="userName"></p>
+    <p id="userEmail"></p>
+    <div id="dataContainer"></div>
+  </div>
+  <script src="new.js" defer type="module"></script>
+</body>
+
+</html>

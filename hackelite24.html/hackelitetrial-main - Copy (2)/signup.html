@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sign-In</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        #google-btn {
+            display: flex;
+            align-items: center;
+            padding: 12px 25px;
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 18px;
+            font-weight: bold;
+            border: 1px solid #d9d9d9;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        #google-btn:hover {
+            background-color: #f7f7f7;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+
+        #google-btn:active {
+            transform: translateY(1px);
+        }
+
+        #google-btn img {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            transition: transform 0.3s;
+        }
+
+        #google-btn:hover img {
+            transform: rotate(360deg);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body {
+            animation: fadeIn 1s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <button id="google-btn">
+        <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google Logo">
+        Sign in with Google
+    </button>
+    <script src="signup.js" defer type="module"></script>
+</body>
+</html>
