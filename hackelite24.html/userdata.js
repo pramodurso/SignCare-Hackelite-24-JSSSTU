@@ -4,7 +4,7 @@ import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBRHnqXIfnO7S-i1q7RBpXEaLP2QA26B20",
+  apiKey: "",
   authDomain: "login-form-a0e9c.firebaseapp.com",
   databaseURL: "https://login-form-a0e9c-default-rtdb.firebaseio.com",
   projectId: "login-form-a0e9c",
@@ -46,3 +46,4 @@ document.getElementById("user-form").addEventListener("submit", function (event)
       alert("Failed to save data. Please try again.");
     });
 });
+
